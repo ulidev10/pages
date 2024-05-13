@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumpleaños Yesica</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #FFB6C1;
+        margin: 0;
+        padding: 0;
+    }
+    #feliz-cumple {
+        font-size: 36px;
+        margin-top: 50px;
+        color: #FF1493; /* Rosa más intenso */
+    }
+    #boton-musica {
+        padding: 15px 30px;
+        font-size: 20px;
+        background-color: #FF69B4;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 30px;
+        transition: background-color 0.3s ease;
+    }
+    #boton-musica:hover {
+        background-color: #FF1493; /* Rosa más intenso en hover */
+    }
+    .nota-container {
+        display: flex;
+        justify-content: center;
+    }
+    .nota {
+        font-style: italic;
+        font-size: 18px;
+        margin-top: 30px;
+        text-align: justify;
+        padding: 0 50px; /* Ajuste de margen izquierdo y derecho */
+    }
+    .corazon {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-image: url('https://emojicdn.elk.sh/❤️');
+        background-size: cover;
+        animation: vuelo 2s ease infinite;
+        pointer-events: none; /* Para que no se puedan seleccionar */
+    }
+    @keyframes vuelo {
+        0% { transform: translateY(-300px) rotate(0deg); }
+        100% { transform: translateY(100vh) rotate(-360deg); }
+    }
+</style>
+</head>
+<body>
+    <h1 id="feliz-cumple">¡Feliz Cumpleaños Yesica!</h1>
+    <button id="boton-musica" onclick="reproducirMusica()">Tócame</button>
+    <audio id="audio" src="C:\Users\uasan\Downloads\Y2meta.app - Malice Mizer - Ma Chérie (~愛しい君へ~) ; Español - Japonés _ HD (128 kbps).mp3" preload="auto"></audio>
+    <div id="mensaje" class="nota-container" style="display: none;">
+        <div class="nota">
+            <p>¡Feliz cumpleaños! Hoy es un día especial para celebrar la existencia de una persona increíble:</p>
+            <p>¡tú! Permíteme expresar cuánto significas para mí y cómo tu presencia en mi vida ha sido una verdadera bendición.</p>
+            <p>Te volviste alguien especial desde que te conoci, tanto a la chiqui como a ti, te amo con todo mi corazon.</p>
+            <p>Cada momento es un regalo que atesoro profundamente.</p>
+            <p>En este día tan significativo, quiero recordarte lo maravillosa que eres.</p>
+            <p>Has superado desafíos y has brillado incluso en los momentos más oscuros.</p>
+            <p>Admiro tu capacidad para encontrar la belleza en cada experiencia y para seguir adelante.</p>
+            <p>No puedo evitar reflexionar sobre todos los recuerdos que hemos compartido juntos y aquellas risas.</p>
+            <p>Desde aquellas conversaciones raras y graciosas, hasta aquellas veces que te molestabas conmigo, cada uno ha dejado una huella imborrable en mi corazón.</p>
+            <p>Tu amistad es un tesoro que valoro más que cualquier otra cosa en este mundo.</p>
+            <p>En este día especial, deseo que seas inundada de amor y felicidad. Que cada momento esté lleno de risas, sorpresas y alegría. Que tus sueños se hagan realidad y que cada deseo que tengas se convierta en realidad.</p>
+            <p>Te lo mereces más de lo que puedo expresar con palabras.</p>
+            <p>Gracias por ser la increíble persona que eres. Gracias por ser mi amiga, mi confidente y mi compañera de aventuras.</p>
+            <p>Estoy infinitamente agradecido por tu presencia en mi vida y no puedo esperar para seguir creando recuerdos inolvidables juntas en los años venideros.</p>
+            <p>¡Feliz cumpleaños, querida Yesica! Que este año sea el mejor hasta ahora y que esté lleno de amor, risas y éxitos. Te quiero mucho y estoy aquí para ti hoy y siempre.</p>
+            <p>Con todo mi cariño,</p>
+            <p>Ulises :3</p>
+        </div>
+    </div>
+    <script>
+        function reproducirMusica() {
+            var audio = document.getElementById("audio");
+            if (audio.paused) {
+                audio.play();
+                document.getElementById("boton-musica").innerHTML = "Pausar Música";
+                document.getElementById("mensaje").style.display = "block";
+                lanzarCorazones();
+            } else {
+                audio.pause();
+                document.getElementById("boton-musica").innerHTML = "Tócame";
+                document.getElementById("mensaje").style.display = "none";
+            }
+        }
+
+        function lanzarCorazones() {
+            for (var i = 0; i < 100; i++) {
+                crearCorazon();
+            }
+        }
+
+        function crearCorazon() {
+            var corazon = document.createElement("div");
+            corazon.classList.add("corazon");
+            corazon.style.left = Math.random() * window.innerWidth + "px";
+            corazon.style.top = Math.random() * window.innerHeight + "px";
+            document.body.appendChild(corazon);
+            setTimeout(function() {
+                corazon.remove();
+            }, 2000); // Tiempo en milisegundos antes de eliminar el corazón
+        }
+    </script>
+</body>
+</html>
